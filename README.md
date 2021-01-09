@@ -1,0 +1,2 @@
+# GoPractice
+Mastering Go language
