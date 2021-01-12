@@ -12,7 +12,7 @@ func main(){
 		os.Exit(1)
 	}
 	arguments := os.Args
-	var err error = errors.New("An error")
+	var err error = errors.New("An error")//1.에러를 정의해준다.
 	k:=1
 	var n float64
 	
@@ -21,9 +21,23 @@ func main(){
 			fmt.Println("None of the arguments is a float!")
 			return
 		}
-		n,err = strconv.ParseFloat(arguments[k],64)
+		n,err = strconv.ParseFloat(arguments[k],64)//에러가 발생하면 정의된 에러로 표기된다.
 		k++
 	}
 	
 	min, max := n,n
+	
+	for i:=2; i<len(arguments);i++{
+		n,err = strconv.ParseFloat(arguments[i],64)
+		if err == nil{
+			if n<min{
+				min=n
+			}
+			if n>max{
+				max=n
+			}
+		}
+	}
+	fmt.Println(min)
+	fmt.Println(max)
 }
